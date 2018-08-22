@@ -1,3 +1,5 @@
+Author: Xinyue Lyu
+
 1.aws EC2:
 Topics covered: to launch an instance
 Advantages: It provides users with virtual computers, and users have full control over the virtual servers.
