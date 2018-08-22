@@ -1,0 +1,26 @@
+1.aws EC2:
+Topics covered: to launch an instance
+Advantages: It provides users with virtual computers, and users have full control over the virtual servers.
+When we launch an instance on EC2, we can choose which operating sysytem to run and then use the logically isolated virtual cloud which is safe.
+
+2.Linux:
+Topics covered: to practice linux commands 
+Advantages: Linux is better for skillful developers as it supports almost all the major programming languages and provides a safer environment. Besides, it supports for SSH, which helps manage servers quickly.
+
+3.Vim:
+Topics covered: to edit text files
+Advantages: It is a very popular text editor with powerful functionalities. Besides, it works on almost all the operating systems.
+
+4.Git/Github:
+Topics covered: to create repositories, branches, to pull/push files from/to github,etc.
+Advantages: Git is a version control system which helps users track changes in computer files.
+Github makes it easy to contribute to open source works and users can showcase their works in front of the public. Besides, users can get great documentations and track changes of the codes.
+
+5.Shell:
+Topics covered: examples of shell command
+Advantages: Shell is used under the linux environment.It has specialized functionalities to work with files and data compared with other programming languages.
+
+6.Pycharm:
+Topics covered: showcase of usage
+Advantages: it is great for professional developers as it has a lot of libraries and also supports other languages. In addition, it is a nice debugger and works well with git.
+
