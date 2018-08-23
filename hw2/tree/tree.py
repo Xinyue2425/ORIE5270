@@ -6,6 +6,10 @@ class Tree(object):
         self.root = root
 
     def get_value_root(self):
+        """
+        get the value of the tree's role
+        :return: root.number
+        """
         if self.root is not None:
             return self.root.value
         else:
@@ -13,13 +17,13 @@ class Tree(object):
 
     def print_tree(self):
         """
-
-        :return:
+        print the tree in a matrix format
+        :return: a list of list
         """
         root = self.root
-        level_list = []     # to store each level
-        my_deque = deque()  # create a deque to store the node
-        value_list = []     # store the value of node
+        level_list = []
+        my_deque = deque()
+        value_list = []
         if root is None:
             return "The tree is empty!"
         else:
