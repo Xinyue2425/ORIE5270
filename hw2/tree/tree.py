@@ -62,7 +62,7 @@ class Tree(object):
             temp_list = []
             for j in level_list[i][:-1]:
                 temp_list.append(j)
-                temp_list = temp_list + ["|" for i in range(count)]
+                temp_list = temp_list + ["|" for k in range(count)]
             temp_list.append(level_list[i][-1])
             count = int(count / 2)
             new_list.append(temp_list)
@@ -70,7 +70,7 @@ class Tree(object):
         for i in new_list:
             if len(i) != 2 ** height - 1:
                 num = int((2 ** height - 1 - len(i)) / 2)
-                space_list = ["|" for i in range(num)]
+                space_list = ["|" for k in range(num)]
                 i = space_list + i + space_list
             final_list.append(i)
         return final_list
