@@ -33,36 +33,53 @@ def detect_negative_cycle(name_txt_file):
     while (i<len(graph_def)):  # 0,2,4,6,8,10,12,14
         graph_dict.update({graph_def[i] : graph_def[i+1]})
         i=i+2
-    destination = '8'
+     
     # implement the Bellman Ford algo
     n_node = len(graph_dict.keys()) # the number of nodes in graph
-    prev_node = {}  # the previous node dictionary
-    distance = {}   # the distance dictionary
-    for i in graph_dict.keys():
-        distance.update({i : np.inf}) 
-        prev_node.update({i : None}) 
-        
-    distance[destination]= 0
     
-    for i in range(n_node-1):
-        for key in graph_dict.keys():
+    for destination in graph_dict.keys():
+        # take each node as a destination
+        prev_node = {}   # the previous node dictionary
+        distance  = {}   # the distance dictionary
+        for non_destination in graph_dict.keys():
+            distance.update({non_destination : np.inf}) 
+            prev_node.update({non_destination: None}) 
+        
+        distance[destination]= 0
+        
+        # loop for n-1 times
+        for i in range(n_node-1):  
+            for key in graph_dict.keys():
+                for neighbor in graph_dict[key]:
+                    # loop for all the edge
+                    u = key
+                    v = neighbor[0]
+                    w = neighbor[1]
+                    if distance[u] != np.inf:
+                        new_dist = min (distance[u] + w, distance[v])
+                        if new_dist < distance[v]: # there is an update
+                            distance[v] = new_dist
+                            prev_node[v] = u  # store the path 
+                            
+        # loop for the n-th time                  
+        for key in graph_dict.keys():  
             for neighbor in graph_dict[key]:
                 u = key
                 v = neighbor[0]
                 w = neighbor[1]
                 if distance[u] != np.inf:
-                    new_dist = min (distance[u] + w, distance[v])
-                    if new_dist < distance[v]: # there is an update
-                        distance[v] = new_dist
-                        prev_node[v] = u  # store the path  
-    for key in graph_dict.keys():
-        for neighbor in graph_dict[key]:
-            u = key
-            v = neighbor[0]
-            w = neighbor[1]
-            if distance[u] != np.inf:
-                if distance[u] + w < distance[v]:
-                    return("There is a negative cycle!")
+                    if distance[u] + w < distance[v]:
+                        # there is an update
+                        print("There is a negative cycle!")
+                        negative_cycle = [u] 
+                        u_prev = prev_node[u]
+                        # prev->u->v
+                        # trace back to get the negative cycle path
+                        while u != u_prev and u_prev:
+                            negative_cycle.append(u_prev)
+                            u_prev = prev_node[u_prev]
+                        negative_cycle.reverse()
+                        return negative_cycle
     return ("There is no negative cycle!")
 if __name__ == "__main__":
     print(detect_negative_cycle("graph_negative_cycle.txt"))
