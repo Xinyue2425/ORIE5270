@@ -63,5 +63,5 @@ def matrix_n_n_vec_n_1(matrix_txt,vector_txt):
     return fin_result
 
 if __name__ == '__main__':
-    print(matrix_n_p_vec_p_1("/Users/xinyuelyu/Desktop/matrix_n_p.txt","/Users/xinyuelyu/Desktop/vector_p_1.txt"))
+    print(matrix_n_p_vec_p_1("matrix_n_p.txt","vector_p_1.txt"))
     print(matrix_n_n_vec_n_1("matrix_n_n.txt","vector_n_1.txt"))
