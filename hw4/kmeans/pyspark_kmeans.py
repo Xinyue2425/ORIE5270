@@ -40,7 +40,6 @@ def pyspark_kmeans(centroids_txt, data_txt):
     #"/Users/xinyuelyu/Desktop/centroids.txt"
     centroids = sc.textFile(centroids_txt).map(lambda line: np.array([float(x) for x in line.split(' ')])).collect()
     data = sc.textFile(data_txt).map(lambda line: [0,[np.array([float(x) for x in line.split(' ')]),[0 for i in range(len(centroids))]]]).cache()
-    count=0
     for k in range(90):
         old_centroids = centroids
 
@@ -58,10 +57,8 @@ def pyspark_kmeans(centroids_txt, data_txt):
 
         # calculate the new centroids
         centroids = data_group.map(lambda l: np.mean(l[1],axis=0)).collect()
-        count+=1
         if assert_equal(old_centroids,centroids):
             print("The centroids are unchanged!")
-            print (count)
             sc.stop()
             return centroids
     sc.stop()
