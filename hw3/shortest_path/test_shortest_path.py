@@ -14,7 +14,7 @@ class test_find_shortest_path(unittest.TestCase):
         answer = (['1', '3', '6', '5', '7'], 3)
         assert(find_shortest_path("graph_dij.txt", "1", "7")==answer)
         
-    def test_case3(self):
+    def test_case4(self):
         answer = "We can not reach to destination from source!"
         assert(find_shortest_path("graph_dij.txt", "4", "1")==answer)   
         
