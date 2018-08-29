@@ -1,5 +1,5 @@
 import unittest
-from negative_cycle.py import detect_negative_cycle
+from negative_cycle.negative_cycle import detect_negative_cycle
 
 class test_negative_cycle(unittest.TestCase):
     def test_case1(self):
