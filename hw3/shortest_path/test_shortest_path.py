@@ -1,5 +1,5 @@
 import unittest
-#from negative_cycle.py import detect_negative_cycle
+from shortest_path.shortest_path import find_shortest_path
 
 class test_find_shortest_path(unittest.TestCase):
     def test_case1(self):
